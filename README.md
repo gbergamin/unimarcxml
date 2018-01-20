@@ -9,7 +9,7 @@ Output can be generated in different formats:
 
 This Schema  can convert UNIMARC records as specified in the MARC documentation including the encoding of the so called embedded fields (4XX fields):
 * [documentation](http://www.bncf.firenze.sbn.it/progetti/unimarc/slim/documentation/unimarcslim.html)
-* [included in SRU schemas](http://www.loc.gov/standards/sru/recordSchemas/]http://www.loc.gov/standards/sru/recordSchemas/) as _info:srw/schema/8/unimarcxml-v0.1_ 
+* [included in SRU schemas](http://www.loc.gov/standards/sru/recordSchemas/) as _info:srw/schema/8/unimarcxml-v0.1_ 
  
 
 _Copyright (C) 2011  WEBDEV <http://www.webdev.it>, BNCF <http://www.bncf.firenze.sbn.it>_
