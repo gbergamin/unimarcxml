@@ -33,7 +33,7 @@
 
 
 #define  PROGRAMNAME "extractISO2709"
-#define  VERSION     "version 1.0"
+#define  VERSION     "version 1.1"
 #define  COPYRIGHT "Copyright (C) 2011  WEBDEV http://www.webdev.it, BNCF http://www.bncf.firenze.sbn.it"
 #define  SCARTATI "scartati.out"
 
@@ -102,8 +102,9 @@ void fatal( int errt , const char* errmsg )
 void printXmlHeader( std::ostream *fout )
 {
   *fout << "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-  << "<collection xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" "
-  << "xsi:schemaLocation=\"http://www.bncf.firenze.sbn.it/unimarc/slim ./unimarcslim.xsd\""
+  << "<collection xmlns=\"http://www.bncf.firenze.sbn.it/unimarc/slim\" "
+  << "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" "
+  << "xsi:schemaLocation=\"http://www.bncf.firenze.sbn.it/unimarc/slim http://www.bncf.firenze.sbn.it/progetti/unimarc/slim/documentation/unimarcslim.xsd\""
   << ">\n";
   //<< "xmlns=\"http://www.bncf.firenze.sbn.it/unimarc/slim\">"
 }
