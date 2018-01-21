@@ -1,0 +1,974 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html>
+	<head>
+		<style type="text/css"> .textElement { font-family: Arial; font-size: 8pt; color: #800000; }</style>
+		<style type="text/css"> .textAttr { font-family: Arial; font-size: 8pt; color: #FF0000; }</style>
+		<style type="text/css"> .textContents { font-family: Arial; font-size: 8pt; color: #000000; }</style>
+		<style type="text/css"> .textOperator { font-family: Arial; font-size: 8pt; color: #0000FF; }</style>
+		<style type="text/css"> .schemaHeader { font-family: Arial; font-size: 11pt; color: #000000; }</style>
+		<style type="text/css"> .schemaHeader2 { font-family: Arial; font-size: 11pt; font-weight: bold; color: #000000; }</style>
+		<style type="text/css"> .elementHeader { font-family: Arial; font-size: 10pt; color: #000000; }</style>
+		<style type="text/css"> .elementHeader2 { font-family: Arial; font-size: 10pt; font-weight: bold; color: #000000; }</style>
+		<style type="text/css"> .schemaName { font-family: Arial; font-size: 8pt; font-weight: bold; color: #000000; }</style>
+		<style type="text/css"> .schemaSubTitle { font-family: Arial; font-size: 8pt; color: #808080; }</style>
+		<style type="text/css"> .schemaSubData { font-family: Arial; font-size: 8pt; color: #000000; }</style>
+		<style type="text/css"> pre { margin-bottom: 0 }</style>
+	</head>
+	<body>
+		<span class="schemaHeader">Schema </span>
+		<span class="schemaHeader2">unimarcslim.xsd</span>
+		<br />
+		<br />
+		<br />
+		<span class="schemaSubTitle">
+		UNIMARCSLIM: 
+		<br />UNIMARC XML Schema prepared by Giovanni Bergamin and Detlev Schumacher for BNCF and based on MARCXML 
+		(The MARC 21 XML Schema prepared by Corey Keith http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd). 
+		<br />August 8, 2004 Initial Release 0.1 
+		<br />January 21, 2018 Release 0.1 fixed regexp pattern value: last four chars ( /450./ instead of /450 |    /)
+		<br />This schema allows XML markup of UNIMARC records as specified in the MARC documentation 
+		<br /> see <a href="https://goo.gl/oqauM2"> UNIMARC bibliographic 2008</a> and <a href="https://www.ifla.org/publications/unimarc-bibliographic--3rd-edition--updates-2012-and-updates-2016?og=33"> Updates </a>
+		<br />This schema accommodates UNIMARC bibliographic and authority records and allows the embedded fields technique
+		<br />
+		<br /><a href="unimarctest.xml" target="_blank"> 5 test unimarcxml records </a>
+		<br />
+		<br />
+		</span>
+		<br />
+		<br />
+		<br />
+		<table cellspacing="0" cellpadding="0">
+			<tr valign="top">
+				<td align="left" bgcolor="#FFFFFF"><span class="schemaSubTitle">schema location:&nbsp;</span></td>
+				<td align="left" bgcolor="#FFFFFF"><a href="http://www.bncf.firenze.sbn.it/progetti/unimarc/slim/documentation/unimarcslim.xsd" target="_blank"><span class="schemaName">unimarcslim.xsd</span></a></td>
+			</tr>
+			<tr valign="top">
+				<td align="left" bgcolor="#FFFFFF"><span class="schemaSubTitle">targetNamespace:&nbsp;</span></td>
+				<td align="left" bgcolor="#FFFFFF"><span class="schemaName">http://www.bncf.firenze.sbn.it/unimarc/slim</span></td>
+			</tr>
+			<tr valign="top">
+				<td align="left" bgcolor="#FFFFFF"><span class="schemaSubTitle">&nbsp;</span></td>
+				<td align="left" bgcolor="#FFFFFF" />
+			</tr>
+		</table>
+		<table cellspacing="0" cellpadding="0">
+			<tr valign="top">
+				<td align="left" bgcolor="#FFFFFF"><span class="schemaSubTitle">Elements&nbsp;</span></td>
+				<td align="left" bgcolor="#FFFFFF"><span class="schemaSubTitle">Complex types&nbsp;</span></td>
+				<td align="left" bgcolor="#FFFFFF"><span class="schemaSubTitle">Simple types&nbsp;</span></td>
+			</tr>
+			<tr valign="top">
+				<td align="left" bgcolor="#FFFFFF"><a href="#element_collection_Link022C7958"><span class="schemaName">collection</span></a><span class="schemaName">&nbsp;</span></td>
+				<td align="left" bgcolor="#FFFFFF"><a href="#complexType_collectionType_Link022C7170"><span class="schemaName">collectionType</span></a><span class="schemaName">&nbsp;</span></td>
+				<td align="left" bgcolor="#FFFFFF"><a href="#simpleType_controlDataType_Link022C9720"><span class="schemaName">controlDataType</span></a><span class="schemaName">&nbsp;</span></td>
+			</tr>
+			<tr valign="top">
+				<td align="left" bgcolor="#FFFFFF"><a href="#element_rec_Link022C7850"><span class="schemaName">rec</span></a><span class="schemaName">&nbsp;</span></td>
+				<td align="left" bgcolor="#FFFFFF"><a href="#complexType_controlFieldType_Link022C8EF8"><span class="schemaName">controlFieldType</span></a><span class="schemaName">&nbsp;</span></td>
+				<td align="left" bgcolor="#FFFFFF"><a href="#simpleType_controltagDataType_Link022C9958"><span class="schemaName">controltagDataType</span></a><span class="schemaName">&nbsp;</span></td>
+			</tr>
+			<tr valign="top">
+				<td align="left" bgcolor="#FFFFFF" />
+				<td align="left" bgcolor="#FFFFFF"><a href="#complexType_dataFieldType_Link022C9BC8"><span class="schemaName">dataFieldType</span></a><span class="schemaName">&nbsp;</span></td>
+				<td align="left" bgcolor="#FFFFFF"><a href="#simpleType_idDataType_Link022CC0F0"><span class="schemaName">idDataType</span></a><span class="schemaName">&nbsp;</span></td>
+			</tr>
+			<tr valign="top">
+				<td align="left" bgcolor="#FFFFFF" />
+				<td align="left" bgcolor="#FFFFFF"><a href="#complexType_leaderFieldType_Link022C85C8"><span class="schemaName">leaderFieldType</span></a><span class="schemaName">&nbsp;</span></td>
+				<td align="left" bgcolor="#FFFFFF"><a href="#simpleType_indicatorDataType_Link022CB1D0"><span class="schemaName">indicatorDataType</span></a><span class="schemaName">&nbsp;</span></td>
+			</tr>
+			<tr valign="top">
+				<td align="left" bgcolor="#FFFFFF" />
+				<td align="left" bgcolor="#FFFFFF"><a href="#complexType_recordType_Link022C7DE8"><span class="schemaName">recordType</span></a><span class="schemaName">&nbsp;</span></td>
+				<td align="left" bgcolor="#FFFFFF"><a href="#simpleType_leaderDataType_Link022C8BC8"><span class="schemaName">leaderDataType</span></a><span class="schemaName">&nbsp;</span></td>
+			</tr>
+			<tr valign="top">
+				<td align="left" bgcolor="#FFFFFF" />
+				<td align="left" bgcolor="#FFFFFF"><a href="#complexType_s1Type_Link022CC208"><span class="schemaName">s1Type</span></a><span class="schemaName">&nbsp;</span></td>
+				<td align="left" bgcolor="#FFFFFF"><a href="#simpleType_recordTypeType_Link0157C0F8"><span class="schemaName">recordTypeType</span></a><span class="schemaName">&nbsp;</span></td>
+			</tr>
+			<tr valign="top">
+				<td align="left" bgcolor="#FFFFFF" />
+				<td align="left" bgcolor="#FFFFFF"><a href="#complexType_subfieldatafieldType_Link022CB480"><span class="schemaName">subfieldatafieldType</span></a><span class="schemaName">&nbsp;</span></td>
+				<td align="left" bgcolor="#FFFFFF"><a href="#simpleType_subfieldcodeDataType_Link022CBEF0"><span class="schemaName">subfieldcodeDataType</span></a><span class="schemaName">&nbsp;</span></td>
+			</tr>
+			<tr valign="top">
+				<td align="left" bgcolor="#FFFFFF" />
+				<td align="left" bgcolor="#FFFFFF" />
+				<td align="left" bgcolor="#FFFFFF"><a href="#simpleType_subfieldDataType_Link022CBD10"><span class="schemaName">subfieldDataType</span></a><span class="schemaName">&nbsp;</span></td>
+			</tr>
+			<tr valign="top">
+				<td align="left" bgcolor="#FFFFFF" />
+				<td align="left" bgcolor="#FFFFFF" />
+				<td align="left" bgcolor="#FFFFFF"><a href="#simpleType_tagDataType_Link022CAED0"><span class="schemaName">tagDataType</span></a><span class="schemaName">&nbsp;</span></td>
+			</tr>
+		</table>
+		<br />
+		<br />
+		<a name="element_collection_Link022C7958" />
+		<span class="elementHeader">element </span>
+		<span class="elementHeader2">collection</span>
+		<table width="100%" cellspacing="0" cellpadding="5" border="1">
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">diagram</span></td>
+				<td width="90%" align="left" bgcolor="#FFFFFF"><map name="Map022C7958"><area coords="135,12,215,26" href="#complexType_collectionType_Link022C7170" /><area coords="189,33,307,103" href="#element_rec_Link022C7850" /><area coords="323,40,323,40" href="#complexType_recordType_Link022C7DE8" /></map><img src="unimarcslim_p1.png" width="357" height="120" border="0" usemap="#Map022C7958" /></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">namespace</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">http://www.bncf.firenze.sbn.it/unimarc/slim</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">type</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><a href="#complexType_collectionType_Link022C7170"><span class="schemaName">collectionType</span></a></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">children</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><a href="#element_rec_Link022C7850"><span class="schemaName">rec</span></a></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">attributes</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Name&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Type&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Use&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Default&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Fixed&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Annotation</span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">id&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">idDataType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">optional&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">annotation</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">documentation&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><pre><span class="schemaSubData">collection is a top level container element for 0 or many records</span></pre></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">source</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><pre><span class="textOperator">&lt;</span><span class="textElement">xsd:element</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"collection</span><span class="textOperator">"</span><span class="textAttr"> type</span><span class="textOperator">=</span><span class="textContents">"collectionType</span><span class="textOperator">"</span><span class="textAttr"> nillable</span><span class="textOperator">=</span><span class="textContents">"true</span><span class="textOperator">"</span><span class="textAttr"> id</span><span class="textOperator">=</span><span class="textContents">"collection.e</span><span class="textOperator">"&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;</span><span class="textElement">xsd:annotation</span><span class="textOperator">&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:documentation</span><span class="textOperator">&gt;</span><span class="textContents">collection is a top level container element for 0 or many records</span><span class="textOperator">&lt;/</span><span class="textElement">xsd:documentation</span><span class="textOperator">&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;/</span><span class="textElement">xsd:annotation</span><span class="textOperator">&gt;</span><span class="textContents">
+</span><span class="textOperator">&lt;/</span><span class="textElement">xsd:element</span><span class="textOperator">&gt;</span></pre></td>
+			</tr>
+		</table>
+		<br />
+		<a name="element_rec_Link022C7850" />
+		<span class="elementHeader">element </span>
+		<span class="elementHeader2">rec</span>
+		<table width="100%" cellspacing="0" cellpadding="5" border="1">
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">diagram</span></td>
+				<td width="90%" align="left" bgcolor="#FFFFFF"><map name="Map022C7850"><area coords="139,12,203,26" href="#complexType_recordType_Link022C7DE8" /><area coords="208,33,258,54" href="#element_lab_Link022C68E8" /><area coords="208,66,258,104" href="#element_cf_Link022C6B90" /><area coords="208,116,258,154" href="#element_df_Link022C6E88" /><area coords="274,123,274,123" href="#complexType_dataFieldType_Link022C9BC8" /></map><img src="unimarcslim_p2.png" width="293" height="171" border="0" usemap="#Map022C7850" /></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">namespace</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">http://www.bncf.firenze.sbn.it/unimarc/slim</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">type</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><a href="#complexType_recordType_Link022C7DE8"><span class="schemaName">recordType</span></a></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">children</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><a href="#element_lab_Link022C68E8"><span class="schemaName">lab</span></a><span class="schemaName"> </span><a href="#element_cf_Link022C6B90"><span class="schemaName">cf</span></a><span class="schemaName"> </span><a href="#element_df_Link022C6E88"><span class="schemaName">df</span></a></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">used by</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">complexType&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><a href="#complexType_collectionType_Link022C7170"><span class="schemaName">collectionType</span></a></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">attributes</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Name&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Type&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Use&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Default&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Fixed&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Annotation</span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">type&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">recordTypeType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">optional&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">id&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">idDataType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">optional&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">annotation</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">documentation&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><pre><span class="schemaSubData">record is a top level container element for all of the field elements which compose the record</span></pre></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">source</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><pre><span class="textOperator">&lt;</span><span class="textElement">xsd:element</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"rec</span><span class="textOperator">"</span><span class="textAttr"> type</span><span class="textOperator">=</span><span class="textContents">"recordType</span><span class="textOperator">"</span><span class="textAttr"> nillable</span><span class="textOperator">=</span><span class="textContents">"true</span><span class="textOperator">"</span><span class="textAttr"> id</span><span class="textOperator">=</span><span class="textContents">"record.e</span><span class="textOperator">"&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;</span><span class="textElement">xsd:annotation</span><span class="textOperator">&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:documentation</span><span class="textOperator">&gt;</span><span class="textContents">record is a top level container element for all of the field elements which compose the record</span><span class="textOperator">&lt;/</span><span class="textElement">xsd:documentation</span><span class="textOperator">&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;/</span><span class="textElement">xsd:annotation</span><span class="textOperator">&gt;</span><span class="textContents">
+</span><span class="textOperator">&lt;/</span><span class="textElement">xsd:element</span><span class="textOperator">&gt;</span></pre></td>
+			</tr>
+		</table>
+		<br />
+		<a name="complexType_collectionType_Link022C7170" />
+		<span class="elementHeader">complexType </span>
+		<span class="elementHeader2">collectionType</span>
+		<table width="100%" cellspacing="0" cellpadding="5" border="1">
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">diagram</span></td>
+				<td width="90%" align="left" bgcolor="#FFFFFF"><map name="Map022C7170"><area coords="170,5,288,75" href="#element_rec_Link022C7850" /><area coords="304,12,304,12" href="#complexType_recordType_Link022C7DE8" /></map><img src="unimarcslim_p3.png" width="323" height="80" border="0" usemap="#Map022C7170" /></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">namespace</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">http://www.bncf.firenze.sbn.it/unimarc/slim</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">children</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><a href="#element_rec_Link022C7850"><span class="schemaName">rec</span></a></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">used by</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">element&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><a href="#element_collection_Link022C7958"><span class="schemaName">collection</span></a></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">attributes</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Name&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Type&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Use&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Default&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Fixed&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Annotation</span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><a name="attribute_id_Link022C7BC0" /><span class="schemaSubData">id&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">idDataType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">optional&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">source</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><pre><span class="textOperator">&lt;</span><span class="textElement">xsd:complexType</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"collectionType</span><span class="textOperator">"</span><span class="textAttr"> id</span><span class="textOperator">=</span><span class="textContents">"collection.ct</span><span class="textOperator">"&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;</span><span class="textElement">xsd:sequence</span><span class="textAttr"> minOccurs</span><span class="textOperator">=</span><span class="textContents">"0</span><span class="textOperator">"</span><span class="textAttr"> maxOccurs</span><span class="textOperator">=</span><span class="textContents">"unbounded</span><span class="textOperator">"&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:element</span><span class="textAttr"> ref</span><span class="textOperator">=</span><span class="textContents">"rec</span><span class="textOperator">"/&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;/</span><span class="textElement">xsd:sequence</span><span class="textOperator">&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;</span><span class="textElement">xsd:attribute</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"id</span><span class="textOperator">"</span><span class="textAttr"> type</span><span class="textOperator">=</span><span class="textContents">"idDataType</span><span class="textOperator">"</span><span class="textAttr"> use</span><span class="textOperator">=</span><span class="textContents">"optional</span><span class="textOperator">"/&gt;</span><span class="textContents">
+</span><span class="textOperator">&lt;/</span><span class="textElement">xsd:complexType</span><span class="textOperator">&gt;</span></pre></td>
+			</tr>
+		</table>
+		<br />
+		<a name="complexType_controlFieldType_Link022C8EF8" />
+		<span class="elementHeader">complexType </span>
+		<span class="elementHeader2">controlFieldType</span>
+		<table width="100%" cellspacing="0" cellpadding="5" border="1">
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">diagram</span></td>
+				<td width="90%" align="left" bgcolor="#FFFFFF"><img src="unimarcslim_p4.png" width="124" height="46" border="0" /></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">namespace</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">http://www.bncf.firenze.sbn.it/unimarc/slim</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">type</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">extension of </span><a href="#simpleType_controlDataType_Link022C9720"><span class="schemaName">controlDataType</span></a></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">used by</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">elements&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><a href="#element_cf_Link022C6B90"><span class="schemaName">recordType/cf</span></a><span class="schemaName"> </span><a href="#element_cf_Link022CCEA0"><span class="schemaName">s1Type/cf</span></a></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">facets</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">whiteSpace&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><span class="schemaSubData">preserve</span></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">attributes</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Name&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Type&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Use&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Default&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Fixed&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Annotation</span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><a name="attribute_id_Link022C9218" /><span class="schemaSubData">id&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">idDataType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">optional&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><a name="attribute_t_Link022C9490" /><span class="schemaSubData">t&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">controltagDataType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">required&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">annotation</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">documentation&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><pre><span class="schemaSubData">UNIMARC Fields 001-009</span></pre></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">source</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><pre><span class="textOperator">&lt;</span><span class="textElement">xsd:complexType</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"controlFieldType</span><span class="textOperator">"</span><span class="textAttr"> id</span><span class="textOperator">=</span><span class="textContents">"controlfield.ct</span><span class="textOperator">"&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;</span><span class="textElement">xsd:annotation</span><span class="textOperator">&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:documentation</span><span class="textOperator">&gt;</span><span class="textContents">UNIMARC Fields 001-009</span><span class="textOperator">&lt;/</span><span class="textElement">xsd:documentation</span><span class="textOperator">&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;/</span><span class="textElement">xsd:annotation</span><span class="textOperator">&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;</span><span class="textElement">xsd:simpleContent</span><span class="textOperator">&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:extension</span><span class="textAttr"> base</span><span class="textOperator">=</span><span class="textContents">"controlDataType</span><span class="textOperator">"&gt;</span><span class="textContents">
+      </span><span class="textOperator">&lt;</span><span class="textElement">xsd:attribute</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"id</span><span class="textOperator">"</span><span class="textAttr"> type</span><span class="textOperator">=</span><span class="textContents">"idDataType</span><span class="textOperator">"</span><span class="textAttr"> use</span><span class="textOperator">=</span><span class="textContents">"optional</span><span class="textOperator">"/&gt;</span><span class="textContents">
+      </span><span class="textOperator">&lt;</span><span class="textElement">xsd:attribute</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"t</span><span class="textOperator">"</span><span class="textAttr"> type</span><span class="textOperator">=</span><span class="textContents">"controltagDataType</span><span class="textOperator">"</span><span class="textAttr"> use</span><span class="textOperator">=</span><span class="textContents">"required</span><span class="textOperator">"/&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;/</span><span class="textElement">xsd:extension</span><span class="textOperator">&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;/</span><span class="textElement">xsd:simpleContent</span><span class="textOperator">&gt;</span><span class="textContents">
+</span><span class="textOperator">&lt;/</span><span class="textElement">xsd:complexType</span><span class="textOperator">&gt;</span></pre></td>
+			</tr>
+		</table>
+		<br />
+		<a name="complexType_dataFieldType_Link022C9BC8" />
+		<span class="elementHeader">complexType </span>
+		<span class="elementHeader2">dataFieldType</span>
+		<table width="100%" cellspacing="0" cellpadding="5" border="1">
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">diagram</span></td>
+				<td width="90%" align="left" bgcolor="#FFFFFF"><map name="Map022C9BC8"><area coords="342,13,392,34" href="#element_sf_Link022CA0B0" /><area coords="342,70,392,91" href="#element_s1_Link022CA390" /><area coords="408,77,408,77" href="#complexType_s1Type_Link022CC208" /></map><img src="unimarcslim_p5.png" width="427" height="137" border="0" usemap="#Map022C9BC8" /></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">namespace</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">http://www.bncf.firenze.sbn.it/unimarc/slim</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">children</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><a href="#element_sf_Link022CA0B0"><span class="schemaName">sf</span></a><span class="schemaName"> </span><a href="#element_s1_Link022CA390"><span class="schemaName">s1</span></a></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">used by</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">elements&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><a href="#element_df_Link022C6E88"><span class="schemaName">recordType/df</span></a><span class="schemaName"> </span><a href="#element_df_Link022CC708"><span class="schemaName">s1Type/df</span></a></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">attributes</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Name&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Type&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Use&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Default&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Fixed&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Annotation</span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><a name="attribute_id_Link022CA620" /><span class="schemaSubData">id&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">idDataType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">optional&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><a name="attribute_t_Link022CA738" /><span class="schemaSubData">t&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">tagDataType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">required&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><a name="attribute_i1_Link022CA9C8" /><span class="schemaSubData">i1&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">indicatorDataType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">required&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><a name="attribute_i2_Link022CAC90" /><span class="schemaSubData">i2&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">indicatorDataType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">required&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">annotation</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">documentation&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><pre><span class="schemaSubData">UNIMARC Variable Data Fields 010-999</span></pre></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">source</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><pre><span class="textOperator">&lt;</span><span class="textElement">xsd:complexType</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"dataFieldType</span><span class="textOperator">"</span><span class="textAttr"> id</span><span class="textOperator">=</span><span class="textContents">"datafield.ct</span><span class="textOperator">"&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;</span><span class="textElement">xsd:annotation</span><span class="textOperator">&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:documentation</span><span class="textOperator">&gt;</span><span class="textContents">UNIMARC Variable Data Fields 010-999</span><span class="textOperator">&lt;/</span><span class="textElement">xsd:documentation</span><span class="textOperator">&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;/</span><span class="textElement">xsd:annotation</span><span class="textOperator">&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;</span><span class="textElement">xsd:choice</span><span class="textOperator">&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:annotation</span><span class="textOperator">&gt;</span><span class="textContents">
+      </span><span class="textOperator">&lt;</span><span class="textElement">xsd:documentation</span><span class="textOperator">&gt;</span><span class="textContents">UNIMARC field can be composed by standard subfields (strings) or by "s1" subfields with embedded tags indicators and subfields ex. g.: 4xx or 604 tags</span><span class="textOperator">&lt;/</span><span class="textElement">xsd:documentation</span><span class="textOperator">&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;/</span><span class="textElement">xsd:annotation</span><span class="textOperator">&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:sequence</span><span class="textAttr"> maxOccurs</span><span class="textOperator">=</span><span class="textContents">"unbounded</span><span class="textOperator">"&gt;</span><span class="textContents">
+      </span><span class="textOperator">&lt;</span><span class="textElement">xsd:element</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"sf</span><span class="textOperator">"</span><span class="textAttr"> type</span><span class="textOperator">=</span><span class="textContents">"subfieldatafieldType</span><span class="textOperator">"/&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;/</span><span class="textElement">xsd:sequence</span><span class="textOperator">&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:sequence</span><span class="textAttr"> maxOccurs</span><span class="textOperator">=</span><span class="textContents">"unbounded</span><span class="textOperator">"&gt;</span><span class="textContents">
+      </span><span class="textOperator">&lt;</span><span class="textElement">xsd:element</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"s1</span><span class="textOperator">"</span><span class="textAttr"> type</span><span class="textOperator">=</span><span class="textContents">"s1Type</span><span class="textOperator">"/&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;/</span><span class="textElement">xsd:sequence</span><span class="textOperator">&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;/</span><span class="textElement">xsd:choice</span><span class="textOperator">&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;</span><span class="textElement">xsd:attribute</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"id</span><span class="textOperator">"</span><span class="textAttr"> type</span><span class="textOperator">=</span><span class="textContents">"idDataType</span><span class="textOperator">"</span><span class="textAttr"> use</span><span class="textOperator">=</span><span class="textContents">"optional</span><span class="textOperator">"/&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;</span><span class="textElement">xsd:attribute</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"t</span><span class="textOperator">"</span><span class="textAttr"> type</span><span class="textOperator">=</span><span class="textContents">"tagDataType</span><span class="textOperator">"</span><span class="textAttr"> use</span><span class="textOperator">=</span><span class="textContents">"required</span><span class="textOperator">"/&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;</span><span class="textElement">xsd:attribute</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"i1</span><span class="textOperator">"</span><span class="textAttr"> type</span><span class="textOperator">=</span><span class="textContents">"indicatorDataType</span><span class="textOperator">"</span><span class="textAttr"> use</span><span class="textOperator">=</span><span class="textContents">"required</span><span class="textOperator">"/&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;</span><span class="textElement">xsd:attribute</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"i2</span><span class="textOperator">"</span><span class="textAttr"> type</span><span class="textOperator">=</span><span class="textContents">"indicatorDataType</span><span class="textOperator">"</span><span class="textAttr"> use</span><span class="textOperator">=</span><span class="textContents">"required</span><span class="textOperator">"/&gt;</span><span class="textContents">
+</span><span class="textOperator">&lt;/</span><span class="textElement">xsd:complexType</span><span class="textOperator">&gt;</span></pre></td>
+			</tr>
+		</table>
+		<br />
+		<a name="element_sf_Link022CA0B0" />
+		<span class="elementHeader">element </span>
+		<span class="elementHeader2">dataFieldType/sf</span>
+		<table width="100%" cellspacing="0" cellpadding="5" border="1">
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">diagram</span></td>
+				<td width="90%" align="left" bgcolor="#FFFFFF"><img src="unimarcslim_p6.png" width="60" height="31" border="0" /></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">namespace</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">http://www.bncf.firenze.sbn.it/unimarc/slim</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">type</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><a href="#complexType_subfieldatafieldType_Link022CB480"><span class="schemaName">subfieldatafieldType</span></a></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">facets</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">whiteSpace&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><span class="schemaSubData">preserve</span></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">attributes</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Name&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Type&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Use&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Default&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Fixed&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Annotation</span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">id&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">idDataType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">optional&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">c&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">subfieldcodeDataType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">required&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">source</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><pre><span class="textOperator">&lt;</span><span class="textElement">xsd:element</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"sf</span><span class="textOperator">"</span><span class="textAttr"> type</span><span class="textOperator">=</span><span class="textContents">"subfieldatafieldType</span><span class="textOperator">"/&gt;</span></pre></td>
+			</tr>
+		</table>
+		<br />
+		<a name="element_s1_Link022CA390" />
+		<span class="elementHeader">element </span>
+		<span class="elementHeader2">dataFieldType/s1</span>
+		<table width="100%" cellspacing="0" cellpadding="5" border="1">
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">diagram</span></td>
+				<td width="90%" align="left" bgcolor="#FFFFFF"><map name="Map022CA390"><area coords="71,12,111,26" href="#complexType_s1Type_Link022CC208" /><area coords="140,33,190,71" href="#element_cf_Link022CCEA0" /><area coords="140,83,190,121" href="#element_df_Link022CC708" /><area coords="206,90,206,90" href="#complexType_dataFieldType_Link022C9BC8" /></map><img src="unimarcslim_p7.png" width="225" height="138" border="0" usemap="#Map022CA390" /></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">namespace</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">http://www.bncf.firenze.sbn.it/unimarc/slim</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">type</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><a href="#complexType_s1Type_Link022CC208"><span class="schemaName">s1Type</span></a></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">children</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><a href="#element_cf_Link022CCEA0"><span class="schemaName">cf</span></a><span class="schemaName"> </span><a href="#element_df_Link022CC708"><span class="schemaName">df</span></a></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">source</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><pre><span class="textOperator">&lt;</span><span class="textElement">xsd:element</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"s1</span><span class="textOperator">"</span><span class="textAttr"> type</span><span class="textOperator">=</span><span class="textContents">"s1Type</span><span class="textOperator">"/&gt;</span></pre></td>
+			</tr>
+		</table>
+		<br />
+		<a name="complexType_leaderFieldType_Link022C85C8" />
+		<span class="elementHeader">complexType </span>
+		<span class="elementHeader2">leaderFieldType</span>
+		<table width="100%" cellspacing="0" cellpadding="5" border="1">
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">diagram</span></td>
+				<td width="90%" align="left" bgcolor="#FFFFFF"><img src="unimarcslim_p8.png" width="127" height="57" border="0" /></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">namespace</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">http://www.bncf.firenze.sbn.it/unimarc/slim</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">type</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">extension of </span><a href="#simpleType_leaderDataType_Link022C8BC8"><span class="schemaName">leaderDataType</span></a></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">used by</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">element&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><a href="#element_lab_Link022C68E8"><span class="schemaName">recordType/lab</span></a></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">facets</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">whiteSpace&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><span class="schemaSubData">preserve</span></td></tr><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">pattern&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><span class="schemaSubData">[\d ]{5}[\dA-Za-z ]{1}[\dA-Za-z]{1}[\dA-Za-z&#32;]{3}(2| )(2| )[\d ]{5}[\dA-Za-z&#32;]{3}(450.)</span></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">attributes</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Name&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Type&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Use&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Default&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Fixed&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Annotation</span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><a name="attribute_id_Link022C89A0" /><span class="schemaSubData">id&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">idDataType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">optional&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">annotation</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">documentation&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><pre><span class="schemaSubData">UNIMARC record label 24 characters</span></pre></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">source</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><pre><span class="textOperator">&lt;</span><span class="textElement">xsd:complexType</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"leaderFieldType</span><span class="textOperator">"</span><span class="textAttr"> id</span><span class="textOperator">=</span><span class="textContents">"leader.ct</span><span class="textOperator">"&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;</span><span class="textElement">xsd:annotation</span><span class="textOperator">&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:documentation</span><span class="textOperator">&gt;</span><span class="textContents">UNIMARC record label 24 characters</span><span class="textOperator">&lt;/</span><span class="textElement">xsd:documentation</span><span class="textOperator">&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;/</span><span class="textElement">xsd:annotation</span><span class="textOperator">&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;</span><span class="textElement">xsd:simpleContent</span><span class="textOperator">&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:extension</span><span class="textAttr"> base</span><span class="textOperator">=</span><span class="textContents">"leaderDataType</span><span class="textOperator">"&gt;</span><span class="textContents">
+      </span><span class="textOperator">&lt;</span><span class="textElement">xsd:attribute</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"id</span><span class="textOperator">"</span><span class="textAttr"> type</span><span class="textOperator">=</span><span class="textContents">"idDataType</span><span class="textOperator">"</span><span class="textAttr"> use</span><span class="textOperator">=</span><span class="textContents">"optional</span><span class="textOperator">"/&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;/</span><span class="textElement">xsd:extension</span><span class="textOperator">&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;/</span><span class="textElement">xsd:simpleContent</span><span class="textOperator">&gt;</span><span class="textContents">
+</span><span class="textOperator">&lt;/</span><span class="textElement">xsd:complexType</span><span class="textOperator">&gt;</span></pre></td>
+			</tr>
+		</table>
+		<br />
+		<a name="complexType_recordType_Link022C7DE8" />
+		<span class="elementHeader">complexType </span>
+		<span class="elementHeader2">recordType</span>
+		<table width="100%" cellspacing="0" cellpadding="5" border="1">
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">diagram</span></td>
+				<td width="90%" align="left" bgcolor="#FFFFFF"><map name="Map022C7DE8"><area coords="169,5,219,26" href="#element_lab_Link022C68E8" /><area coords="169,38,219,76" href="#element_cf_Link022C6B90" /><area coords="169,88,219,126" href="#element_df_Link022C6E88" /><area coords="235,95,235,95" href="#complexType_dataFieldType_Link022C9BC8" /></map><img src="unimarcslim_p9.png" width="239" height="131" border="0" usemap="#Map022C7DE8" /></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">namespace</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">http://www.bncf.firenze.sbn.it/unimarc/slim</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">children</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><a href="#element_lab_Link022C68E8"><span class="schemaName">lab</span></a><span class="schemaName"> </span><a href="#element_cf_Link022C6B90"><span class="schemaName">cf</span></a><span class="schemaName"> </span><a href="#element_df_Link022C6E88"><span class="schemaName">df</span></a></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">used by</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">element&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><a href="#element_rec_Link022C7850"><span class="schemaName">rec</span></a></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">attributes</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Name&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Type&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Use&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Default&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Fixed&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Annotation</span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><a name="attribute_type_Link022C8068" /><span class="schemaSubData">type&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">recordTypeType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">optional&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><a name="attribute_id_Link022C8240" /><span class="schemaSubData">id&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">idDataType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">optional&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">source</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><pre><span class="textOperator">&lt;</span><span class="textElement">xsd:complexType</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"recordType</span><span class="textOperator">"</span><span class="textAttr"> id</span><span class="textOperator">=</span><span class="textContents">"record.ct</span><span class="textOperator">"&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;</span><span class="textElement">xsd:sequence</span><span class="textAttr"> minOccurs</span><span class="textOperator">=</span><span class="textContents">"0</span><span class="textOperator">"&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:element</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"lab</span><span class="textOperator">"</span><span class="textAttr"> type</span><span class="textOperator">=</span><span class="textContents">"leaderFieldType</span><span class="textOperator">"/&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:element</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"cf</span><span class="textOperator">"</span><span class="textAttr"> type</span><span class="textOperator">=</span><span class="textContents">"controlFieldType</span><span class="textOperator">"</span><span class="textAttr"> maxOccurs</span><span class="textOperator">=</span><span class="textContents">"unbounded</span><span class="textOperator">"/&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:element</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"df</span><span class="textOperator">"</span><span class="textAttr"> type</span><span class="textOperator">=</span><span class="textContents">"dataFieldType</span><span class="textOperator">"</span><span class="textAttr"> minOccurs</span><span class="textOperator">=</span><span class="textContents">"0</span><span class="textOperator">"</span><span class="textAttr"> maxOccurs</span><span class="textOperator">=</span><span class="textContents">"unbounded</span><span class="textOperator">"/&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;/</span><span class="textElement">xsd:sequence</span><span class="textOperator">&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;</span><span class="textElement">xsd:attribute</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"type</span><span class="textOperator">"</span><span class="textAttr"> type</span><span class="textOperator">=</span><span class="textContents">"recordTypeType</span><span class="textOperator">"</span><span class="textAttr"> use</span><span class="textOperator">=</span><span class="textContents">"optional</span><span class="textOperator">"/&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;</span><span class="textElement">xsd:attribute</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"id</span><span class="textOperator">"</span><span class="textAttr"> type</span><span class="textOperator">=</span><span class="textContents">"idDataType</span><span class="textOperator">"</span><span class="textAttr"> use</span><span class="textOperator">=</span><span class="textContents">"optional</span><span class="textOperator">"/&gt;</span><span class="textContents">
+</span><span class="textOperator">&lt;/</span><span class="textElement">xsd:complexType</span><span class="textOperator">&gt;</span></pre></td>
+			</tr>
+		</table>
+		<br />
+		<a name="element_lab_Link022C68E8" />
+		<span class="elementHeader">element </span>
+		<span class="elementHeader2">recordType/lab</span>
+		<table width="100%" cellspacing="0" cellpadding="5" border="1">
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">diagram</span></td>
+				<td width="90%" align="left" bgcolor="#FFFFFF"><img src="unimarcslim_p10.png" width="60" height="31" border="0" /></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">namespace</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">http://www.bncf.firenze.sbn.it/unimarc/slim</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">type</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><a href="#complexType_leaderFieldType_Link022C85C8"><span class="schemaName">leaderFieldType</span></a></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">facets</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">whiteSpace&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><span class="schemaSubData">preserve</span></td></tr><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">pattern&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><span class="schemaSubData">[\d ]{5}[\dA-Za-z ]{1}[\dA-Za-z]{1}[\dA-Za-z&#32;]{3}(2| )(2| )[\d ]{5}[\dA-Za-z&#32;]{3}(450.)</span></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">attributes</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Name&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Type&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Use&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Default&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Fixed&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Annotation</span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">id&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">idDataType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">optional&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">source</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><pre><span class="textOperator">&lt;</span><span class="textElement">xsd:element</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"lab</span><span class="textOperator">"</span><span class="textAttr"> type</span><span class="textOperator">=</span><span class="textContents">"leaderFieldType</span><span class="textOperator">"/&gt;</span></pre></td>
+			</tr>
+		</table>
+		<br />
+		<a name="element_cf_Link022C6B90" />
+		<span class="elementHeader">element </span>
+		<span class="elementHeader2">recordType/cf</span>
+		<table width="100%" cellspacing="0" cellpadding="5" border="1">
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">diagram</span></td>
+				<td width="90%" align="left" bgcolor="#FFFFFF"><img src="unimarcslim_p11.png" width="60" height="31" border="0" /></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">namespace</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">http://www.bncf.firenze.sbn.it/unimarc/slim</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">type</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><a href="#complexType_controlFieldType_Link022C8EF8"><span class="schemaName">controlFieldType</span></a></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">facets</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">whiteSpace&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><span class="schemaSubData">preserve</span></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">attributes</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Name&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Type&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Use&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Default&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Fixed&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Annotation</span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">id&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">idDataType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">optional&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">t&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">controltagDataType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">required&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">source</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><pre><span class="textOperator">&lt;</span><span class="textElement">xsd:element</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"cf</span><span class="textOperator">"</span><span class="textAttr"> type</span><span class="textOperator">=</span><span class="textContents">"controlFieldType</span><span class="textOperator">"</span><span class="textAttr"> maxOccurs</span><span class="textOperator">=</span><span class="textContents">"unbounded</span><span class="textOperator">"/&gt;</span></pre></td>
+			</tr>
+		</table>
+		<br />
+		<a name="element_df_Link022C6E88" />
+		<span class="elementHeader">element </span>
+		<span class="elementHeader2">recordType/df</span>
+		<table width="100%" cellspacing="0" cellpadding="5" border="1">
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">diagram</span></td>
+				<td width="90%" align="left" bgcolor="#FFFFFF"><map name="Map022C6E88"><area coords="71,12,147,26" href="#complexType_dataFieldType_Link022C9BC8" /><area coords="278,41,328,62" href="#element_sf_Link022CA0B0" /><area coords="278,98,328,119" href="#element_s1_Link022CA390" /><area coords="344,105,344,105" href="#complexType_s1Type_Link022CC208" /></map><img src="unimarcslim_p12.png" width="378" height="177" border="0" usemap="#Map022C6E88" /></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">namespace</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">http://www.bncf.firenze.sbn.it/unimarc/slim</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">type</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><a href="#complexType_dataFieldType_Link022C9BC8"><span class="schemaName">dataFieldType</span></a></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">children</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><a href="#element_sf_Link022CA0B0"><span class="schemaName">sf</span></a><span class="schemaName"> </span><a href="#element_s1_Link022CA390"><span class="schemaName">s1</span></a></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">attributes</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Name&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Type&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Use&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Default&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Fixed&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Annotation</span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">id&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">idDataType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">optional&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">t&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">tagDataType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">required&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">i1&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">indicatorDataType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">required&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">i2&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">indicatorDataType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">required&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">source</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><pre><span class="textOperator">&lt;</span><span class="textElement">xsd:element</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"df</span><span class="textOperator">"</span><span class="textAttr"> type</span><span class="textOperator">=</span><span class="textContents">"dataFieldType</span><span class="textOperator">"</span><span class="textAttr"> minOccurs</span><span class="textOperator">=</span><span class="textContents">"0</span><span class="textOperator">"</span><span class="textAttr"> maxOccurs</span><span class="textOperator">=</span><span class="textContents">"unbounded</span><span class="textOperator">"/&gt;</span></pre></td>
+			</tr>
+		</table>
+		<br />
+		<a name="complexType_s1Type_Link022CC208" />
+		<span class="elementHeader">complexType </span>
+		<span class="elementHeader2">s1Type</span>
+		<table width="100%" cellspacing="0" cellpadding="5" border="1">
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">diagram</span></td>
+				<td width="90%" align="left" bgcolor="#FFFFFF"><map name="Map022CC208"><area coords="211,5,261,43" href="#element_cf_Link022CCEA0" /><area coords="211,55,261,93" href="#element_df_Link022CC708" /><area coords="277,62,277,62" href="#complexType_dataFieldType_Link022C9BC8" /></map><img src="unimarcslim_p13.png" width="281" height="98" border="0" usemap="#Map022CC208" /></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">namespace</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">http://www.bncf.firenze.sbn.it/unimarc/slim</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">children</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><a href="#element_cf_Link022CCEA0"><span class="schemaName">cf</span></a><span class="schemaName"> </span><a href="#element_df_Link022CC708"><span class="schemaName">df</span></a></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">used by</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">element&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><a href="#element_s1_Link022CA390"><span class="schemaName">dataFieldType/s1</span></a></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">annotation</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">documentation&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><pre><span class="schemaSubData">The embedded fields technique  introduced by s1 tag</span></pre></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">source</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><pre><span class="textOperator">&lt;</span><span class="textElement">xsd:complexType</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"s1Type</span><span class="textOperator">"</span><span class="textAttr"> id</span><span class="textOperator">=</span><span class="textContents">"s1.ct</span><span class="textOperator">"&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;</span><span class="textElement">xsd:annotation</span><span class="textOperator">&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:documentation</span><span class="textOperator">&gt;</span><span class="textContents">The embedded fields technique  introduced by s1 tag</span><span class="textOperator">&lt;/</span><span class="textElement">xsd:documentation</span><span class="textOperator">&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;/</span><span class="textElement">xsd:annotation</span><span class="textOperator">&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;</span><span class="textElement">xsd:sequence</span><span class="textOperator">&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:element</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"cf</span><span class="textOperator">"</span><span class="textAttr"> type</span><span class="textOperator">=</span><span class="textContents">"controlFieldType</span><span class="textOperator">"</span><span class="textAttr"> minOccurs</span><span class="textOperator">=</span><span class="textContents">"0</span><span class="textOperator">"</span><span class="textAttr"> maxOccurs</span><span class="textOperator">=</span><span class="textContents">"unbounded</span><span class="textOperator">"/&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:element</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"df</span><span class="textOperator">"</span><span class="textAttr"> type</span><span class="textOperator">=</span><span class="textContents">"dataFieldType</span><span class="textOperator">"</span><span class="textAttr"> minOccurs</span><span class="textOperator">=</span><span class="textContents">"0</span><span class="textOperator">"</span><span class="textAttr"> maxOccurs</span><span class="textOperator">=</span><span class="textContents">"unbounded</span><span class="textOperator">"/&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;/</span><span class="textElement">xsd:sequence</span><span class="textOperator">&gt;</span><span class="textContents">
+</span><span class="textOperator">&lt;/</span><span class="textElement">xsd:complexType</span><span class="textOperator">&gt;</span></pre></td>
+			</tr>
+		</table>
+		<br />
+		<a name="element_cf_Link022CCEA0" />
+		<span class="elementHeader">element </span>
+		<span class="elementHeader2">s1Type/cf</span>
+		<table width="100%" cellspacing="0" cellpadding="5" border="1">
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">diagram</span></td>
+				<td width="90%" align="left" bgcolor="#FFFFFF"><img src="unimarcslim_p14.png" width="60" height="31" border="0" /></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">namespace</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">http://www.bncf.firenze.sbn.it/unimarc/slim</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">type</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><a href="#complexType_controlFieldType_Link022C8EF8"><span class="schemaName">controlFieldType</span></a></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">facets</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">whiteSpace&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><span class="schemaSubData">preserve</span></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">attributes</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Name&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Type&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Use&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Default&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Fixed&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Annotation</span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">id&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">idDataType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">optional&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">t&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">controltagDataType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">required&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">source</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><pre><span class="textOperator">&lt;</span><span class="textElement">xsd:element</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"cf</span><span class="textOperator">"</span><span class="textAttr"> type</span><span class="textOperator">=</span><span class="textContents">"controlFieldType</span><span class="textOperator">"</span><span class="textAttr"> minOccurs</span><span class="textOperator">=</span><span class="textContents">"0</span><span class="textOperator">"</span><span class="textAttr"> maxOccurs</span><span class="textOperator">=</span><span class="textContents">"unbounded</span><span class="textOperator">"/&gt;</span></pre></td>
+			</tr>
+		</table>
+		<br />
+		<a name="element_df_Link022CC708" />
+		<span class="elementHeader">element </span>
+		<span class="elementHeader2">s1Type/df</span>
+		<table width="100%" cellspacing="0" cellpadding="5" border="1">
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">diagram</span></td>
+				<td width="90%" align="left" bgcolor="#FFFFFF"><map name="Map022CC708"><area coords="71,12,147,26" href="#complexType_dataFieldType_Link022C9BC8" /><area coords="278,41,328,62" href="#element_sf_Link022CA0B0" /><area coords="278,98,328,119" href="#element_s1_Link022CA390" /><area coords="344,105,344,105" href="#complexType_s1Type_Link022CC208" /></map><img src="unimarcslim_p15.png" width="378" height="177" border="0" usemap="#Map022CC708" /></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">namespace</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">http://www.bncf.firenze.sbn.it/unimarc/slim</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">type</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><a href="#complexType_dataFieldType_Link022C9BC8"><span class="schemaName">dataFieldType</span></a></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">children</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><a href="#element_sf_Link022CA0B0"><span class="schemaName">sf</span></a><span class="schemaName"> </span><a href="#element_s1_Link022CA390"><span class="schemaName">s1</span></a></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">attributes</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Name&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Type&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Use&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Default&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Fixed&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Annotation</span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">id&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">idDataType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">optional&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">t&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">tagDataType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">required&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">i1&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">indicatorDataType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">required&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">i2&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">indicatorDataType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">required&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">source</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><pre><span class="textOperator">&lt;</span><span class="textElement">xsd:element</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"df</span><span class="textOperator">"</span><span class="textAttr"> type</span><span class="textOperator">=</span><span class="textContents">"dataFieldType</span><span class="textOperator">"</span><span class="textAttr"> minOccurs</span><span class="textOperator">=</span><span class="textContents">"0</span><span class="textOperator">"</span><span class="textAttr"> maxOccurs</span><span class="textOperator">=</span><span class="textContents">"unbounded</span><span class="textOperator">"/&gt;</span></pre></td>
+			</tr>
+		</table>
+		<br />
+		<a name="complexType_subfieldatafieldType_Link022CB480" />
+		<span class="elementHeader">complexType </span>
+		<span class="elementHeader2">subfieldatafieldType</span>
+		<table width="100%" cellspacing="0" cellpadding="5" border="1">
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">diagram</span></td>
+				<td width="90%" align="left" bgcolor="#FFFFFF"><img src="unimarcslim_p16.png" width="137" height="30" border="0" /></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">namespace</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">http://www.bncf.firenze.sbn.it/unimarc/slim</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">type</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">extension of </span><a href="#simpleType_subfieldDataType_Link022CBD10"><span class="schemaName">subfieldDataType</span></a></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">used by</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">element&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><a href="#element_sf_Link022CA0B0"><span class="schemaName">dataFieldType/sf</span></a></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">facets</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">whiteSpace&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><span class="schemaSubData">preserve</span></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">attributes</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Name&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Type&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Use&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Default&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Fixed&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubTitle">Annotation</span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><a name="attribute_id_Link022CB838" /><span class="schemaSubData">id&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">idDataType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">optional&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr><tr valign="top"><td width="16%" align="left" bgcolor="#F0F0F0"><a name="attribute_c_Link022CBA80" /><span class="schemaSubData">c&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">subfieldcodeDataType&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">required&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">&nbsp;&nbsp;</span></td><td width="16%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData"> </span></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">source</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><pre><span class="textOperator">&lt;</span><span class="textElement">xsd:complexType</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"subfieldatafieldType</span><span class="textOperator">"</span><span class="textAttr"> id</span><span class="textOperator">=</span><span class="textContents">"subfield.ct</span><span class="textOperator">"&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;</span><span class="textElement">xsd:simpleContent</span><span class="textOperator">&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:extension</span><span class="textAttr"> base</span><span class="textOperator">=</span><span class="textContents">"subfieldDataType</span><span class="textOperator">"&gt;</span><span class="textContents">
+      </span><span class="textOperator">&lt;</span><span class="textElement">xsd:attribute</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"id</span><span class="textOperator">"</span><span class="textAttr"> type</span><span class="textOperator">=</span><span class="textContents">"idDataType</span><span class="textOperator">"</span><span class="textAttr"> use</span><span class="textOperator">=</span><span class="textContents">"optional</span><span class="textOperator">"/&gt;</span><span class="textContents">
+      </span><span class="textOperator">&lt;</span><span class="textElement">xsd:attribute</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"c</span><span class="textOperator">"</span><span class="textAttr"> type</span><span class="textOperator">=</span><span class="textContents">"subfieldcodeDataType</span><span class="textOperator">"</span><span class="textAttr"> use</span><span class="textOperator">=</span><span class="textContents">"required</span><span class="textOperator">"/&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;/</span><span class="textElement">xsd:extension</span><span class="textOperator">&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;/</span><span class="textElement">xsd:simpleContent</span><span class="textOperator">&gt;</span><span class="textContents">
+</span><span class="textOperator">&lt;/</span><span class="textElement">xsd:complexType</span><span class="textOperator">&gt;</span></pre></td>
+			</tr>
+		</table>
+		<br />
+		<a name="simpleType_controlDataType_Link022C9720" />
+		<span class="elementHeader">simpleType </span>
+		<span class="elementHeader2">controlDataType</span>
+		<table width="100%" cellspacing="0" cellpadding="5" border="1">
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">namespace</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">http://www.bncf.firenze.sbn.it/unimarc/slim</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">type</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">restriction of </span><span class="schemaName">xsd:string</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">used by</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">complexType&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><a href="#complexType_controlFieldType_Link022C8EF8"><span class="schemaName">controlFieldType</span></a></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">facets</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">whiteSpace&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><span class="schemaSubData">preserve</span></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">source</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><pre><span class="textOperator">&lt;</span><span class="textElement">xsd:simpleType</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"controlDataType</span><span class="textOperator">"</span><span class="textAttr"> id</span><span class="textOperator">=</span><span class="textContents">"controlfield.st</span><span class="textOperator">"&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;</span><span class="textElement">xsd:restriction</span><span class="textAttr"> base</span><span class="textOperator">=</span><span class="textContents">"xsd:string</span><span class="textOperator">"&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:whiteSpace</span><span class="textAttr"> value</span><span class="textOperator">=</span><span class="textContents">"preserve</span><span class="textOperator">"/&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;/</span><span class="textElement">xsd:restriction</span><span class="textOperator">&gt;</span><span class="textContents">
+</span><span class="textOperator">&lt;/</span><span class="textElement">xsd:simpleType</span><span class="textOperator">&gt;</span></pre></td>
+			</tr>
+		</table>
+		<br />
+		<a name="simpleType_controltagDataType_Link022C9958" />
+		<span class="elementHeader">simpleType </span>
+		<span class="elementHeader2">controltagDataType</span>
+		<table width="100%" cellspacing="0" cellpadding="5" border="1">
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">namespace</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">http://www.bncf.firenze.sbn.it/unimarc/slim</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">type</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">restriction of </span><span class="schemaName">xsd:string</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">used by</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">attribute&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><a href="#attribute_t_Link022C9490"><span class="schemaName">controlFieldType/@t</span></a></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">facets</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">whiteSpace&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><span class="schemaSubData">preserve</span></td></tr><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">pattern&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><span class="schemaSubData">00[1-9A-Za-z]{1}</span></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">source</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><pre><span class="textOperator">&lt;</span><span class="textElement">xsd:simpleType</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"controltagDataType</span><span class="textOperator">"</span><span class="textAttr"> id</span><span class="textOperator">=</span><span class="textContents">"controltag.st</span><span class="textOperator">"&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;</span><span class="textElement">xsd:restriction</span><span class="textAttr"> base</span><span class="textOperator">=</span><span class="textContents">"xsd:string</span><span class="textOperator">"&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:whiteSpace</span><span class="textAttr"> value</span><span class="textOperator">=</span><span class="textContents">"preserve</span><span class="textOperator">"/&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:pattern</span><span class="textAttr"> value</span><span class="textOperator">=</span><span class="textContents">"00[1-9A-Za-z]{1}</span><span class="textOperator">"/&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;/</span><span class="textElement">xsd:restriction</span><span class="textOperator">&gt;</span><span class="textContents">
+</span><span class="textOperator">&lt;/</span><span class="textElement">xsd:simpleType</span><span class="textOperator">&gt;</span></pre></td>
+			</tr>
+		</table>
+		<br />
+		<a name="simpleType_idDataType_Link022CC0F0" />
+		<span class="elementHeader">simpleType </span>
+		<span class="elementHeader2">idDataType</span>
+		<table width="100%" cellspacing="0" cellpadding="5" border="1">
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">namespace</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">http://www.bncf.firenze.sbn.it/unimarc/slim</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">type</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaName">xsd:ID</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">used by</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">attributes&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><a href="#attribute_id_Link022C7BC0"><span class="schemaName">collectionType/@id</span></a><span class="schemaName"> </span><a href="#attribute_id_Link022C8240"><span class="schemaName">recordType/@id</span></a><span class="schemaName"> </span><a href="#attribute_id_Link022C89A0"><span class="schemaName">leaderFieldType/@id</span></a><span class="schemaName"> </span><a href="#attribute_id_Link022C9218"><span class="schemaName">controlFieldType/@id</span></a><span class="schemaName"> </span><a href="#attribute_id_Link022CA620"><span class="schemaName">dataFieldType/@id</span></a><span class="schemaName"> </span><a href="#attribute_id_Link022CB838"><span class="schemaName">subfieldatafieldType/@id</span></a></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">source</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><pre><span class="textOperator">&lt;</span><span class="textElement">xsd:simpleType</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"idDataType</span><span class="textOperator">"</span><span class="textAttr"> id</span><span class="textOperator">=</span><span class="textContents">"id.st</span><span class="textOperator">"&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;</span><span class="textElement">xsd:restriction</span><span class="textAttr"> base</span><span class="textOperator">=</span><span class="textContents">"xsd:ID</span><span class="textOperator">"/&gt;</span><span class="textContents">
+</span><span class="textOperator">&lt;/</span><span class="textElement">xsd:simpleType</span><span class="textOperator">&gt;</span></pre></td>
+			</tr>
+		</table>
+		<br />
+		<a name="simpleType_indicatorDataType_Link022CB1D0" />
+		<span class="elementHeader">simpleType </span>
+		<span class="elementHeader2">indicatorDataType</span>
+		<table width="100%" cellspacing="0" cellpadding="5" border="1">
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">namespace</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">http://www.bncf.firenze.sbn.it/unimarc/slim</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">type</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">restriction of </span><span class="schemaName">xsd:string</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">used by</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">attributes&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><a href="#attribute_i1_Link022CA9C8"><span class="schemaName">dataFieldType/@i1</span></a><span class="schemaName"> </span><a href="#attribute_i2_Link022CAC90"><span class="schemaName">dataFieldType/@i2</span></a></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">facets</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">whiteSpace&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><span class="schemaSubData">preserve</span></td></tr><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">pattern&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><span class="schemaSubData">[\d\|a-z ]{1}</span></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">source</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><pre><span class="textOperator">&lt;</span><span class="textElement">xsd:simpleType</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"indicatorDataType</span><span class="textOperator">"</span><span class="textAttr"> id</span><span class="textOperator">=</span><span class="textContents">"ind.st</span><span class="textOperator">"&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;</span><span class="textElement">xsd:restriction</span><span class="textAttr"> base</span><span class="textOperator">=</span><span class="textContents">"xsd:string</span><span class="textOperator">"&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:whiteSpace</span><span class="textAttr"> value</span><span class="textOperator">=</span><span class="textContents">"preserve</span><span class="textOperator">"/&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:pattern</span><span class="textAttr"> value</span><span class="textOperator">=</span><span class="textContents">"[\d\|a-z ]{1}</span><span class="textOperator">"/&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;/</span><span class="textElement">xsd:restriction</span><span class="textOperator">&gt;</span><span class="textContents">
+</span><span class="textOperator">&lt;/</span><span class="textElement">xsd:simpleType</span><span class="textOperator">&gt;</span></pre></td>
+			</tr>
+		</table>
+		<br />
+		<a name="simpleType_leaderDataType_Link022C8BC8" />
+		<span class="elementHeader">simpleType </span>
+		<span class="elementHeader2">leaderDataType</span>
+		<table width="100%" cellspacing="0" cellpadding="5" border="1">
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">namespace</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">http://www.bncf.firenze.sbn.it/unimarc/slim</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">type</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">restriction of </span><span class="schemaName">xsd:string</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">used by</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">complexType&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><a href="#complexType_leaderFieldType_Link022C85C8"><span class="schemaName">leaderFieldType</span></a></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">facets</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">whiteSpace&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><span class="schemaSubData">preserve</span></td></tr><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">pattern&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><span class="schemaSubData">[\d ]{5}[\dA-Za-z ]{1}[\dA-Za-z]{1}[\dA-Za-z&#32;]{3}(2| )(2| )[\d ]{5}[\dA-Za-z&#32;]{3}(450.)</span></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">source</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><pre><span class="textOperator">&lt;</span><span class="textElement">xsd:simpleType</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"leaderDataType</span><span class="textOperator">"</span><span class="textAttr"> id</span><span class="textOperator">=</span><span class="textContents">"leader.st</span><span class="textOperator">"&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;</span><span class="textElement">xsd:restriction</span><span class="textAttr"> base</span><span class="textOperator">=</span><span class="textContents">"xsd:string</span><span class="textOperator">"&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:whiteSpace</span><span class="textAttr"> value</span><span class="textOperator">=</span><span class="textContents">"preserve</span><span class="textOperator">"/&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:pattern</span><span class="textAttr"> value</span><span class="textOperator">=</span><span class="textContents">"[\d ]{5}[\dA-Za-z ]{1}[\dA-Za-z]{1}[\dA-Za-z&#32;]{3}(2| )(2| )[\d ]{5}[\dA-Za-z&#32;]{3}(450.)</span><span class="textOperator">"/&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;/</span><span class="textElement">xsd:restriction</span><span class="textOperator">&gt;</span><span class="textContents">
+</span><span class="textOperator">&lt;/</span><span class="textElement">xsd:simpleType</span><span class="textOperator">&gt;</span></pre></td>
+			</tr>
+		</table>
+		<br />
+		<a name="simpleType_recordTypeType_Link0157C0F8" />
+		<span class="elementHeader">simpleType </span>
+		<span class="elementHeader2">recordTypeType</span>
+		<table width="100%" cellspacing="0" cellpadding="5" border="1">
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">namespace</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">http://www.bncf.firenze.sbn.it/unimarc/slim</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">type</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">restriction of </span><span class="schemaName">xsd:NMTOKEN</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">used by</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">attribute&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><a href="#attribute_type_Link022C8068"><span class="schemaName">recordType/@type</span></a></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">facets</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">enumeration&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><span class="schemaSubData">Bibliographic</span></td></tr><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">enumeration&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><span class="schemaSubData">Authority</span></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">source</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><pre><span class="textOperator">&lt;</span><span class="textElement">xsd:simpleType</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"recordTypeType</span><span class="textOperator">"</span><span class="textAttr"> id</span><span class="textOperator">=</span><span class="textContents">"type.st</span><span class="textOperator">"&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;</span><span class="textElement">xsd:restriction</span><span class="textAttr"> base</span><span class="textOperator">=</span><span class="textContents">"xsd:NMTOKEN</span><span class="textOperator">"&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:enumeration</span><span class="textAttr"> value</span><span class="textOperator">=</span><span class="textContents">"Bibliographic</span><span class="textOperator">"/&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:enumeration</span><span class="textAttr"> value</span><span class="textOperator">=</span><span class="textContents">"Authority</span><span class="textOperator">"/&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;/</span><span class="textElement">xsd:restriction</span><span class="textOperator">&gt;</span><span class="textContents">
+</span><span class="textOperator">&lt;/</span><span class="textElement">xsd:simpleType</span><span class="textOperator">&gt;</span></pre></td>
+			</tr>
+		</table>
+		<br />
+		<a name="simpleType_subfieldcodeDataType_Link022CBEF0" />
+		<span class="elementHeader">simpleType </span>
+		<span class="elementHeader2">subfieldcodeDataType</span>
+		<table width="100%" cellspacing="0" cellpadding="5" border="1">
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">namespace</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">http://www.bncf.firenze.sbn.it/unimarc/slim</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">type</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">restriction of </span><span class="schemaName">xsd:string</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">used by</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">attribute&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><a href="#attribute_c_Link022CBA80"><span class="schemaName">subfieldatafieldType/@c</span></a></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">facets</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">whiteSpace&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><span class="schemaSubData">preserve</span></td></tr><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">pattern&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><span class="schemaSubData">[\da-z!&quot;#$%&amp;'()*+,-./:;&lt;=&gt;?{}_^`~\[\]\\]{1}</span></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">source</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><pre><span class="textOperator">&lt;</span><span class="textElement">xsd:simpleType</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"subfieldcodeDataType</span><span class="textOperator">"</span><span class="textAttr"> id</span><span class="textOperator">=</span><span class="textContents">"code.st</span><span class="textOperator">"&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;</span><span class="textElement">xsd:restriction</span><span class="textAttr"> base</span><span class="textOperator">=</span><span class="textContents">"xsd:string</span><span class="textOperator">"&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:whiteSpace</span><span class="textAttr"> value</span><span class="textOperator">=</span><span class="textContents">"preserve</span><span class="textOperator">"/&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:pattern</span><span class="textAttr"> value</span><span class="textOperator">=</span><span class="textContents">"[\da-z!&quot;#$%&amp;'()*+,-./:;&lt;=&gt;?{}_^`~\[\]\\]{1}</span><span class="textOperator">"/&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;/</span><span class="textElement">xsd:restriction</span><span class="textOperator">&gt;</span><span class="textContents">
+</span><span class="textOperator">&lt;/</span><span class="textElement">xsd:simpleType</span><span class="textOperator">&gt;</span></pre></td>
+			</tr>
+		</table>
+		<br />
+		<a name="simpleType_subfieldDataType_Link022CBD10" />
+		<span class="elementHeader">simpleType </span>
+		<span class="elementHeader2">subfieldDataType</span>
+		<table width="100%" cellspacing="0" cellpadding="5" border="1">
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">namespace</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">http://www.bncf.firenze.sbn.it/unimarc/slim</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">type</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">restriction of </span><span class="schemaName">xsd:string</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">used by</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">complexType&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><a href="#complexType_subfieldatafieldType_Link022CB480"><span class="schemaName">subfieldatafieldType</span></a></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">facets</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">whiteSpace&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><span class="schemaSubData">preserve</span></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">source</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><pre><span class="textOperator">&lt;</span><span class="textElement">xsd:simpleType</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"subfieldDataType</span><span class="textOperator">"</span><span class="textAttr"> id</span><span class="textOperator">=</span><span class="textContents">"subfield.st</span><span class="textOperator">"&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;</span><span class="textElement">xsd:restriction</span><span class="textAttr"> base</span><span class="textOperator">=</span><span class="textContents">"xsd:string</span><span class="textOperator">"&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:whiteSpace</span><span class="textAttr"> value</span><span class="textOperator">=</span><span class="textContents">"preserve</span><span class="textOperator">"/&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;/</span><span class="textElement">xsd:restriction</span><span class="textOperator">&gt;</span><span class="textContents">
+</span><span class="textOperator">&lt;/</span><span class="textElement">xsd:simpleType</span><span class="textOperator">&gt;</span></pre></td>
+			</tr>
+		</table>
+		<br />
+		<a name="simpleType_tagDataType_Link022CAED0" />
+		<span class="elementHeader">simpleType </span>
+		<span class="elementHeader2">tagDataType</span>
+		<table width="100%" cellspacing="0" cellpadding="5" border="1">
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">namespace</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">http://www.bncf.firenze.sbn.it/unimarc/slim</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">type</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><span class="schemaSubData">restriction of </span><span class="schemaName">xsd:string</span></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">used by</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">attribute&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><a href="#attribute_t_Link022CA738"><span class="schemaName">dataFieldType/@t</span></a></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">facets</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><table cellspacing="0" cellpadding="0"><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">whiteSpace&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><span class="schemaSubData">preserve</span></td></tr><tr valign="top"><td align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">pattern&nbsp;</span></td><td align="left" bgcolor="#F0F0F0"><span class="schemaSubData">(0([1-9A-Z][0-9A-Z])|0([1-9a-z][0-9a-z]))|(([1-9A-Z][0-9A-Z]{2})|([1-9a-z][0-9a-z]{2}))</span></td></tr></table></td>
+			</tr>
+			<tr valign="top">
+				<td width="10%" align="right" bgcolor="#F0F0F0"><span class="schemaSubTitle">source</span></td>
+				<td width="90%" align="left" bgcolor="#F0F0F0"><pre><span class="textOperator">&lt;</span><span class="textElement">xsd:simpleType</span><span class="textAttr"> name</span><span class="textOperator">=</span><span class="textContents">"tagDataType</span><span class="textOperator">"</span><span class="textAttr"> id</span><span class="textOperator">=</span><span class="textContents">"tag.st</span><span class="textOperator">"&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;</span><span class="textElement">xsd:restriction</span><span class="textAttr"> base</span><span class="textOperator">=</span><span class="textContents">"xsd:string</span><span class="textOperator">"&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:whiteSpace</span><span class="textAttr"> value</span><span class="textOperator">=</span><span class="textContents">"preserve</span><span class="textOperator">"/&gt;</span><span class="textContents">
+    </span><span class="textOperator">&lt;</span><span class="textElement">xsd:pattern</span><span class="textAttr"> value</span><span class="textOperator">=</span><span class="textContents">"(0([1-9A-Z][0-9A-Z])|0([1-9a-z][0-9a-z]))|(([1-9A-Z][0-9A-Z]{2})|([1-9a-z][0-9a-z]{2}))</span><span class="textOperator">"/&gt;</span><span class="textContents">
+  </span><span class="textOperator">&lt;/</span><span class="textElement">xsd:restriction</span><span class="textOperator">&gt;</span><span class="textContents">
+</span><span class="textOperator">&lt;/</span><span class="textElement">xsd:simpleType</span><span class="textOperator">&gt;</span></pre></td>
+			</tr>
+		</table>
+		<br />
+		<br />
+		<span class="schemaSubTitle">XML Schema documentation generated with </span>
+		<a href="http://www.altova.com/xmlspy">
+			<span class="schemaName">XML Spy</span>
+		</a>
+		<span class="schemaSubTitle"> Schema Editor </span>
+		<a href="http://www.altova.com/xmlspy">
+			<span class="schemaName">http://www.altova.com/xmlspy</span>
+		</a>
+	</body>
+</html>
