@@ -5,10 +5,10 @@ Program for data extraction from files conformant to format ISO-2709.
 Output can be generated in different formats:
 1. simple text format
 2. xml according to UNIMARCXML Schema  
-<http://www.bncf.firenze.sbn.it/progetti/unimarc/slim/documentation/unimarcslim.xsd> 
+<http://web.archive.org/*/http://www.bncf.firenze.sbn.it/progetti/unimarc/slim/documentation/unimarcslim.xsd> 
 
 This Schema  can convert UNIMARC records as specified in the MARC documentation including the encoding of the so called embedded fields (4XX fields):
-* [documentation](http://www.bncf.firenze.sbn.it/progetti/unimarc/slim/documentation/unimarcslim.html)
+* [documentation](http://web.archive.org/*/http://www.bncf.firenze.sbn.it/progetti/unimarc/slim/documentation/unimarcslim.html)
 * [included in SRU schemas](http://www.loc.gov/standards/sru/recordSchemas/) as _info:srw/schema/8/unimarcxml-v0.1_ 
  
 
