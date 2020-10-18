@@ -8,7 +8,7 @@ Output can be generated in different formats:
 <http://web.archive.org/*/http://www.bncf.firenze.sbn.it/progetti/unimarc/slim/documentation/unimarcslim.xsd> 
 
 This Schema  can convert UNIMARC records as specified in the MARC documentation including the encoding of the so called embedded fields (4XX fields):
-* [documentation](http://web.archive.org/*/http://www.bncf.firenze.sbn.it/progetti/unimarc/slim/documentation/unimarcslim.html) or <https://github.com/gbergamin/unimarcxml/tree/master/documentation>
+* documentation: <https://github.com/gbergamin/unimarcxml/tree/master/documentation>
 * [included in SRU schemas](http://www.loc.gov/standards/sru/recordSchemas/) as _info:srw/schema/8/unimarcxml-v0.1_ 
  
 
